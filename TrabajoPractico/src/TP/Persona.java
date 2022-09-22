@@ -6,6 +6,11 @@ public abstract class Persona {
     public String apellido;
     public int legajo;
 
+
+
+
     public abstract void modificarDatos();
+
+
 
 }
