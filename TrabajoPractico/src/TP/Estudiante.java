@@ -6,7 +6,7 @@ public class Estudiante extends Persona {
         this.setApellido(apellido);
         this.setNombre(nombre);
         this.setLegajo(legajo);
-    };
+    }
 
 
 
@@ -14,4 +14,5 @@ public class Estudiante extends Persona {
     public void modificarDatos() {
 
     }
+
 }
