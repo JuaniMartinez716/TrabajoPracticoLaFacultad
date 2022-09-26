@@ -16,6 +16,18 @@ public class Carrera implements iInformacion {
         this.nombre = nombre;
     }
 
+    public void agregarMateria(Materia materia){
+        listaM.add(materia);
+    }
+    public void eliminarMateria(String nombre){
+        for (Materia mat:listaM){
+            if(mat.getNombre().equals(nombre)){
+                listaM.remove(mat);
+                break;
+            }
+        }
+    }
+
 
 
     @Override

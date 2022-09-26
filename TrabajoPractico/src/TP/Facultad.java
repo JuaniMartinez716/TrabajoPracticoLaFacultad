@@ -7,6 +7,19 @@ public class Facultad implements iInformacion {
 
     private String nombre;
     private List<Carrera> listaC=new LinkedList<Carrera>();
+
+
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+
+
     public void agregarCarrera(Carrera carrera){
         listaC.add(carrera);
 
@@ -26,6 +39,9 @@ public class Facultad implements iInformacion {
 
     @Override
     public void listarContenidos() {
+        for(Carrera carr:listaC){
+            System.out.println(carr.getNombre());
+        }
 
     }
 }
