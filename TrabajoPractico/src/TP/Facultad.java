@@ -39,6 +39,7 @@ public class Facultad implements iInformacion {
     public void eliminarEstudiante(Estudiante estudiante){
 
 
+
     }
 
     @Override

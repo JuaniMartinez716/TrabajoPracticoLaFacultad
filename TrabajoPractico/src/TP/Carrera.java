@@ -2,11 +2,13 @@ package TP;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Carrera implements iInformacion {
 
     private String nombre;
     private List<Materia> listaM=new LinkedList<Materia>();
+    Scanner sc=new Scanner(System.in);
 
     public Carrera(){}
 
@@ -36,7 +38,11 @@ public class Carrera implements iInformacion {
     public void encontrarMateria(String nombre){
         for(int i=0;i<listaM.size();i++){
             if(listaM.get(i).getNombre().equals(nombre)){
-                System.out.println("existe");
+                System.out.println("existe, presione 1 si desea eliminar ");
+                int a=sc.nextInt();
+                if(a==1){eliminarMateria(nombre);
+                }break;
+
             }else{
                 System.out.println("no existe");
             }

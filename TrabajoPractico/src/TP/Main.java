@@ -57,6 +57,10 @@ public class Main {
         matematica.listarContenidos();
         System.out.println("-------------");
         quimica.listarContenidos();
+        System.out.println("------------");
+        tup.encontrarMateria("matematica");
+        System.out.println("----------");
+        tup.listarContenidos();
 
 
 
