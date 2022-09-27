@@ -8,6 +8,12 @@ public class Carrera implements iInformacion {
     private String nombre;
     private List<Materia> listaM=new LinkedList<Materia>();
 
+    public Carrera(){}
+
+    public Carrera(String nombre) {
+        this.nombre = nombre;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -27,11 +33,30 @@ public class Carrera implements iInformacion {
             }
         }
     }
+    public void encontrarMateria(String nombre){
+        for(int i=0;i<listaM.size();i++){
+            if(listaM.get(i).getNombre().equals(nombre)){
+                System.out.println("existe");
+            }else{
+                System.out.println("no existe");
+            }
+        }
+
+    }
 
 
 
     @Override
     public void listarContenidos() {
+        for(Materia mat:listaM){
+            System.out.println(mat.getNombre());
+        }
 
+    }
+
+    @Override
+    public int verCantidad() {
+        int a=listaM.size();
+        return a;
     }
 }

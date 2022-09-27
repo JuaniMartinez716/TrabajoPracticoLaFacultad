@@ -7,8 +7,11 @@ public class Facultad implements iInformacion {
 
     private String nombre;
     private List<Carrera> listaC=new LinkedList<Carrera>();
+    public Facultad(){}
 
-
+    public Facultad(String nombre) {
+        this.nombre = nombre;
+    }
 
     public String getNombre() {
         return nombre;
@@ -35,6 +38,7 @@ public class Facultad implements iInformacion {
     }
     public void eliminarEstudiante(Estudiante estudiante){
 
+
     }
 
     @Override
@@ -43,5 +47,11 @@ public class Facultad implements iInformacion {
             System.out.println(carr.getNombre());
         }
 
+    }
+
+    @Override
+    public int verCantidad() {
+        int a=listaC.size();
+        return a;
     }
 }

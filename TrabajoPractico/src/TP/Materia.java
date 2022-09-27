@@ -9,7 +9,17 @@ public class Materia implements iInformacion {
 
     private String nombre;
     private Profesor titular;
+
+
+
     private  List<Estudiante>lista =new LinkedList<Estudiante>();
+
+    public Materia(){}
+
+    public Materia(String nombre, Profesor titular) {
+        this.nombre = nombre;
+        this.titular = titular;
+    }
 
     public String getNombre() {
         return nombre;
@@ -50,6 +60,11 @@ public class Materia implements iInformacion {
         }
     }
 
+    @Override
+    public int verCantidad() {
+        int a=lista.size();
+        return a;
+    }
 
 
 }
