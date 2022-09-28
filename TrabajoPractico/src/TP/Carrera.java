@@ -1,10 +1,11 @@
 package TP;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Carrera implements iInformacion {
+public class Carrera implements iInformacion, Comparable<Carrera> {
 
     private String nombre;
     private List<Materia> listaM=new LinkedList<Materia>();
@@ -22,6 +23,10 @@ public class Carrera implements iInformacion {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public List<Materia> getListaM() {
+        return listaM;
     }
 
     public void agregarMateria(Materia materia){
@@ -50,19 +55,34 @@ public class Carrera implements iInformacion {
 
     }
 
-
-
     @Override
     public void listarContenidos() {
+        Collections.sort(listaM);
+
         for(Materia mat:listaM){
-            System.out.println(mat.getNombre());
+            System.out.println(mat.toString());
         }
 
     }
+
+
 
     @Override
     public int verCantidad() {
         int a=listaM.size();
         return a;
+    }
+
+    @Override
+    public int compareTo(Carrera o) {
+        int salida;
+        if(o.getNombre().compareToIgnoreCase(this.nombre)==0){
+            salida=0;
+        }else if(o.getNombre().compareToIgnoreCase(this.nombre)>0){
+            salida=-1;
+        }else{
+            salida=1;
+        }
+        return salida;
     }
 }

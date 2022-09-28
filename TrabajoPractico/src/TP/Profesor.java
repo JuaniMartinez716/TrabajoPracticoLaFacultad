@@ -5,6 +5,17 @@ public class Profesor extends Persona{
     private double basico;
     private int antiguedad;
 
+    public Profesor(){}
+
+    public Profesor(String nombre, String apellido, int legajo, double basico, int antiguedad){
+        this.nombre=nombre;
+        this.apellido=apellido;
+        this.legajo=legajo;
+        this.basico=basico;
+        this.antiguedad=antiguedad;
+    }
+
+
     public double getBasico() {
         return basico;
     }
@@ -31,7 +42,11 @@ public class Profesor extends Persona{
 
     }
 
+    @Override
+    public String toString() {
+        return "Profesor: "+"nombre= " +nombre+", apellido= "+apellido +", legajo= " + legajo;
 
+    }
 
     @Override
     public void modificarDatos() {

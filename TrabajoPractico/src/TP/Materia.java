@@ -2,10 +2,11 @@ package TP;
 
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Materia implements iInformacion {
+public class Materia implements iInformacion, Comparable<Materia> {
 
     private String nombre;
     private Profesor titular;
@@ -37,7 +38,13 @@ public class Materia implements iInformacion {
         this.titular = titular;
     }
 
+    public List<Estudiante> getLista() {
+        return lista;
+    }
+
     public void agregarEstudiantes(Estudiante estudiante){
+
+
         lista.add(estudiante);
     }
     public void eliminarEstudiantes(String nombre){
@@ -54,10 +61,17 @@ public class Materia implements iInformacion {
     }
 
     public void listarContenidos() {
+        Collections.sort(lista);
+
         for (Estudiante est:lista){
 
-            System.out.println(est.getApellido());
+            System.out.println(est.toString());
         }
+    }
+
+    @Override
+    public String toString() {
+        return "nombre= " +nombre +", titular=" + titular.toString();
     }
 
     @Override
@@ -67,4 +81,16 @@ public class Materia implements iInformacion {
     }
 
 
+    @Override
+    public int compareTo(Materia o) {
+        int salida;
+        if(o.getNombre().compareToIgnoreCase(this.nombre)==0){
+           salida=0;
+        }else if(o.getNombre().compareToIgnoreCase(this.nombre)>0){
+            salida=-1;
+        }else{
+            salida=1;
+        }
+        return salida;
+    }
 }
