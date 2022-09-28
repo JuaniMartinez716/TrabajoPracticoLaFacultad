@@ -1,10 +1,13 @@
 package TP;
 
-public class Carrera implements iInformacion {
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Carrera implements iInformacion, Comparable<Carrera> {
 
     private String nombre;
-<<<<<<< Updated upstream
-=======
     private List<Materia> listaM=new LinkedList<Materia>();
     Scanner sc=new Scanner(System.in);
 
@@ -22,10 +25,13 @@ public class Carrera implements iInformacion {
         this.nombre = nombre;
     }
 
+    public List<Materia> getListaM() {
+        return listaM;
+    }
+
     public void agregarMateria(Materia materia){
         listaM.add(materia);
     }
-    
     public void eliminarMateria(String nombre){
         for (Materia mat:listaM){
             if(mat.getNombre().equals(nombre)){
@@ -46,21 +52,37 @@ public class Carrera implements iInformacion {
                 System.out.println("no existe");
             }
         }
+
     }
-
-
->>>>>>> Stashed changes
 
     @Override
     public void listarContenidos() {
+        Collections.sort(listaM);
 
-<<<<<<< Updated upstream
-=======
+        for(Materia mat:listaM){
+            System.out.println(mat.toString());
+        }
+
+    }
+
+
 
     @Override
     public int verCantidad() {
         int a=listaM.size();
         return a;
->>>>>>> Stashed changes
+    }
+
+    @Override
+    public int compareTo(Carrera o) {
+        int salida;
+        if(o.getNombre().compareToIgnoreCase(this.nombre)==0){
+            salida=0;
+        }else if(o.getNombre().compareToIgnoreCase(this.nombre)>0){
+            salida=-1;
+        }else{
+            salida=1;
+        }
+        return salida;
     }
 }

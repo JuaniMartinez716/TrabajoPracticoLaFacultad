@@ -1,27 +1,63 @@
 package TP;
 
-<<<<<<< Updated upstream
-=======
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.swing.JOptionPane;
-
->>>>>>> Stashed changes
 public class Facultad implements iInformacion {
 
     private String nombre;
+    private List<Carrera> listaC=new LinkedList<Carrera>();
+    public Facultad(){}
+
+    public Facultad(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+
+
+    public void agregarCarrera(Carrera carrera){
+        listaC.add(carrera);
+
+    }
+    public void eliminarCarrera(String nombre){
+        for (Carrera carr:listaC){
+            if(carr.getNombre().equals(nombre)){
+                listaC.remove(carr);
+                break;
+            }
+        }
+
+    }
+    public void eliminarEstudiante(Estudiante estudiante){
+        for(int i=0;i<listaC.size();i++){
+            for(int j=0;j<listaC.get(i).getListaM().size();j++){
+                for(int k=0;k<listaC.get(i).getListaM().get(j).getLista().size();k++){
+                    if(listaC.get(i).getListaM().get(j).getLista().get(k).equals(estudiante)){
+                        listaC.get(i).getListaM().get(j).eliminarEstudiantes(estudiante.getNombre());
+                    }
+                }
+            }
+        }
+    }
+
+
 
     @Override
     public void listarContenidos() {
-<<<<<<< Updated upstream
-
-    }
-=======
-        
+        Collections.sort(listaC);
         for(Carrera carr:listaC){
-            JOptionPane.showMessageDialog(null, carr.getNombre());
+            System.out.println(carr.getNombre());
         }
+
     }
 
     @Override
@@ -29,9 +65,4 @@ public class Facultad implements iInformacion {
         int a=listaC.size();
         return a;
     }
-
-    public List<Carrera> getListaC() {
-        return listaC;
-    }
->>>>>>> Stashed changes
 }
