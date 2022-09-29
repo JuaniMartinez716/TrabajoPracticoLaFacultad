@@ -1,7 +1,5 @@
 package TP;
 
-
-import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -11,11 +9,10 @@ public class Materia implements iInformacion, Comparable<Materia> {
     private String nombre;
     private Profesor titular;
 
+    private List<Estudiante> lista = new LinkedList<Estudiante>();
 
-
-    private  List<Estudiante>lista =new LinkedList<Estudiante>();
-
-    public Materia(){}
+    public Materia() {
+    }
 
     public Materia(String nombre, Profesor titular) {
         this.nombre = nombre;
@@ -42,28 +39,28 @@ public class Materia implements iInformacion, Comparable<Materia> {
         return lista;
     }
 
-    public void agregarEstudiantes(Estudiante estudiante){
-
-
+    public void agregarEstudiantes(Estudiante estudiante) {
         lista.add(estudiante);
     }
-    public void eliminarEstudiantes(String nombre){
-        for (Estudiante estudiante:lista){
-            if(estudiante.getNombre().equals(nombre)){
+
+    public void eliminarEstudiantes(String nombre) {
+        for (Estudiante estudiante : lista) {
+            if (estudiante.getNombre().equals(nombre)) {
                 lista.remove(estudiante);
                 break;
             }
         }
     }
-    public void modificarTitular(Profesor profesor){
-        titular=profesor;
+
+    public void modificarTitular(Profesor profesor) {
+        titular = profesor;
 
     }
 
     public void listarContenidos() {
         Collections.sort(lista);
 
-        for (Estudiante est:lista){
+        for (Estudiante est : lista) {
 
             System.out.println(est.toString());
         }
@@ -71,25 +68,24 @@ public class Materia implements iInformacion, Comparable<Materia> {
 
     @Override
     public String toString() {
-        return "nombre= " +nombre +", titular=" + titular.toString();
+        return "nombre= " + nombre + ", titular=" + titular.toString();
     }
 
     @Override
     public int verCantidad() {
-        int a=lista.size();
+        int a = lista.size();
         return a;
     }
-
 
     @Override
     public int compareTo(Materia o) {
         int salida;
-        if(o.getNombre().compareToIgnoreCase(this.nombre)==0){
-           salida=0;
-        }else if(o.getNombre().compareToIgnoreCase(this.nombre)>0){
-            salida=-1;
-        }else{
-            salida=1;
+        if (o.getNombre().compareToIgnoreCase(this.nombre) == 0) {
+            salida = 0;
+        } else if (o.getNombre().compareToIgnoreCase(this.nombre) > 0) {
+            salida = -1;
+        } else {
+            salida = 1;
         }
         return salida;
     }
