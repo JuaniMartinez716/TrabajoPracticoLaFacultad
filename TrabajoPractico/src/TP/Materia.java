@@ -4,6 +4,8 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 public class Materia implements iInformacion, Comparable<Materia> {
 
     private String nombre;
@@ -62,7 +64,8 @@ public class Materia implements iInformacion, Comparable<Materia> {
 
         for (Estudiante est : lista) {
 
-            System.out.println(est.toString());
+            JOptionPane.showMessageDialog(null,
+                    "Nombre: " + est.getNombre() + "\nApellido: " + est.getApellido() + "\nLegajo: " + est.getLegajo());
         }
     }
 
